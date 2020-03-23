@@ -3,14 +3,8 @@
 #include <iostream>
 #include <string>
 
-class peaShooter {
-private:
-    int interval;
-    int damage;
+class peaShooter : Plant {
 public:
     void peaShooter();
-    void shootPea();
-    void :
-
-
+    void shoot();
 }
