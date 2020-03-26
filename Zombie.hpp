@@ -14,12 +14,12 @@ class Zombie{
 
 	public:
 	Zombie(int startDamage, int hitPoints);
-	void updateLocation(int x, int y);
-	void lowerHitPoints(int amount);	
-	int getDamage();
-	int getHitPoints();
-	int getX();
-	int getY();
+	virtual void updateLocation(int x, int y);
+	virtual void lowerHitPoints(int amount);	
+	virtual int getDamage();
+	virtual int getHitPoints();
+	virtual int getX();
+	virtual int getY();
 };
 
 #endif
