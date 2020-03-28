@@ -1,3 +1,7 @@
 # PvZ
 
--> could you put build and run commands here thanks
+build:
+
+
+run:
+mpirun -n 4 ./PvZ
