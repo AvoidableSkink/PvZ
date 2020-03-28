@@ -10,8 +10,8 @@ public GameModel{
 
 	public:
 	GameModel();
-	Update();
-	Render();
+	void Update();
+	void Render();
 
 }
 
