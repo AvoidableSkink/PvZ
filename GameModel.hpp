@@ -5,7 +5,7 @@ public GameModel{
 
 
 	private:
-	ZombieController z_cont;
+	ZombieController Zombie_Controller;
 	Board board;
 
 	public:
