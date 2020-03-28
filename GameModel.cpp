@@ -3,7 +3,7 @@
 
 GameModel::GameModel(){}
 void GameModel::Update(){
-		z_cont.update();
+		Zombie_Controller.update();
 
 
 	}
