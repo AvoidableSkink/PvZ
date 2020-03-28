@@ -3,7 +3,7 @@
 
 GameModel::GameModel(){}
 void GameModel::Update(){
-		Zombie_Controller.update();
+		Zombie_Controller.UpdateZombies();
 
 
 	}
