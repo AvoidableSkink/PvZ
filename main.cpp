@@ -10,6 +10,11 @@ int main(int argc, char**argv){
 	MPI_Comm_size(MCW, &size);
 	
 // Game
+	//One way we could do this -----
+	if(rank ==0){
+		GameModel Game_Model;
+	}
+	// ----------------------
 
 
 
