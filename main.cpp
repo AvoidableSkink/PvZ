@@ -12,7 +12,7 @@ int main(int argc, char**argv){
 // Game
 	//One way we could do this -----
 	if(rank ==0){
-		GameModel Game_Model;
+		GameModel Game_Model; // or we could do this per processor or something...
 	}
 	// ----------------------
 
