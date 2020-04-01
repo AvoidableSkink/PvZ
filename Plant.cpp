@@ -15,5 +15,12 @@ bool Plant::alive() {
 	return false;
 }
 
-void Plant::shoot() {}
+bool Plant::readyToShoot() {
+    auto currentTime = std::chrono::high_resulution_clock::now();
+    auto duration = std::hrono::duration_cast<chrono::seconds>(currentTime-lastShot)
+    if(duration.count() >= interval)
+	return true;
+    else
+	return false;
+}
 
