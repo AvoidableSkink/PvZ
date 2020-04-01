@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 
-class peaShooter : Plant {
+class PeaShooter : Plant {
 public:
-    void peaShooter();
+    void PeaShooter(int x, int y);
     void shoot();
 }
