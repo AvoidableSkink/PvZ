@@ -1,4 +1,3 @@
-
 #pragma once
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
@@ -15,7 +14,8 @@ private:
     BoardRow myRow;	
 
 public:
-    GameModel(): zc(5,5){}
+    GameModel(): zc(5,5) {fill();}
+    void fill(); //this is used to add a starting # of random plants until user input is a thing
     void Update();
     void Render();
     void set(){	

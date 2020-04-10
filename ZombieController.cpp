@@ -18,7 +18,7 @@ void ZombieController::CreateZombie(int damage, int hitpoints, int row, int col)
 void ZombieController::ZombieManager(){
 	srand(time(0));
 	if(currentWaveSize < 4){
-		CreateZombie(rand()%5, rand()%20, rand()%rows, cols-1);
+		CreateZombie(rand()%5 + 1, rand()%20 + 1, rand()%rows, cols-1);
 		currentWaveSize++;
 		zombiesRemaining--;
 	}

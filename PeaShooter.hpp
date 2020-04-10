@@ -5,7 +5,7 @@
 #include "Plant.hpp"
 #include "PlantBullet.hpp"
 
-class PeaShooter : Plant {
+class PeaShooter : public Plant {
 public:
     PeaShooter(int x, int y);
     PlantBullet shoot();
