@@ -1,7 +1,7 @@
 #include "PeaShooter.hpp"
 #include "PlantBullet.hpp"
 
-PeaShooter::PeaShooter(int x, int y) { //just kinda picked, sure well change em later
+void PeaShooter::PeaShooter(int x, int y) { //just kinda picked, sure well change em later
     locX = x;
     locY = y;
     
@@ -13,7 +13,7 @@ PeaShooter::PeaShooter(int x, int y) { //just kinda picked, sure well change em 
     lastShot = chrono::high_resoluction_clock::now();
 }
 
-PlantBullet shoot() {
+void PlantBullet::PlantBullet shoot() {
     PlantBullet newBullet(0,0,damage); 
     lastShot = chrono::high_resolution_clock::now();
     return newBullet;
