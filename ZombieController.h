@@ -20,7 +20,7 @@ class ZombieController{
 
 	
 	public:
-	ZombieController(Board board, int rows, int cols);
+	ZombieController(int rows, int cols);
 	void CreateZombie(int damage, int hitpoints, int row, int col);
 	void ZombieManager();
 	void RemoveZombie(int loc);

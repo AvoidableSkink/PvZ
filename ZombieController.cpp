@@ -4,11 +4,7 @@
 #include <stdlib.h> 
 
 
-ZombieController::ZombieController(Board board, int row, int col){
-
-	rows = row;
-	cols = col;
-	board = board;
+ZombieController::ZombieController(int row, int col): rows(row), cols(col){
 	currentWaveSize = rand()%13;
 	zombiesRemaining = rand()%15;
 }

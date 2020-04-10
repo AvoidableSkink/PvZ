@@ -9,17 +9,18 @@ class GameModel{
 
 	private:
 	Board board;
-	ZombieController Zombie_Controller;
+	ZombieController zc;
 
 
 	public:
-	GameModel();
+	GameModel(): zc(5,5){}
 	void Update();
 	void Render();
 	void set(){	
-	ZombieController zc(board, 5, 5); // second two should take rows and cols
-	Zombie_Controller = zc;
+	 // second two should take rows and cols
+
 	}
+	
 
 };
 

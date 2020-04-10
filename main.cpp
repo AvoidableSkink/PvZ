@@ -11,13 +11,16 @@ int main(int argc, char**argv){
 	MPI_Comm_rank(MCW, &rank);
 	MPI_Comm_size(MCW, &size);
 	int alive = true;
-	GameModel Game_Model; // or we could do this per processor or something...
-
+	
+	/*GameModel Game_Model; // or we could do this per processor or something...
+	std::cout<<"test\n";
 	while(alive){
 		Game_Model.Update();
 		Game_Model.Render();
 			MPI_Barrier(MCW);
 	}
+
+	*/
 //send death message or cleared message
 
 
