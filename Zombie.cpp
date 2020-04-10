@@ -1,6 +1,10 @@
-#include "Zombie.hpp"
+#include "Zombie.h"
+#include <chrono>
+#include <random>
 
-Zombie::Zombie(int startDamage, int hitPoints):damage(startDamage), hitPoints(hitPoints){}
+Zombie::Zombie(int startDamage, int hitPoints):damage(startDamage), hitPoints(hitPoints){
+	interval = rand()%5
+}
 
 
 void Zombie::updateLocation(int x, int y){
@@ -10,7 +14,28 @@ void Zombie::updateLocation(int x, int y){
 
 void Zombie::lowerHitPoints(int amount){hitPoints -= amount;}
 
-int Zombie::getDamage(){return damage;}
+int Zombie::update( ){
+
+	auto currentTime = std::chrono::high_resulution_clock::now();
+    auto duration = std::chrono::duration_cast<chrono::seconds>(currentTime-lastShot);
+    if(duration.count() >= interval){
+	move();
+	}
+
+
+
+	return damage;
+}
+
+void Zombie::move(){
+	location.x -= 1;
+}
+
+void Zombie::takeDamage(int damage){ //to take damage from the plant
+	hitpoints -= damage;
+}
+
+int Zombie::getDamage(){return damage;} // to give the plant damage
 
 int Zombie::getHitPoints(){return hitPoints;}
 
