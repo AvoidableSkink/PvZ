@@ -2,6 +2,8 @@
 #define ZOMBIE_H
 
 #include <chrono>
+#include <iostream>
+using namespace std::chrono;
 
 class Zombie{
 	private:

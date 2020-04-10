@@ -3,6 +3,7 @@
 #define PLANYBULLET_HPP
 
 #include <chrono>
+#include<iostream>
 
 class PlantBullet{
 public:
@@ -18,6 +19,7 @@ public:
 private:
     int locX;
     int locY;
+	  int interval;
     int damage;
     bool alive;
 };

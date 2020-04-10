@@ -8,7 +8,7 @@ PlantBullet::PlantBullet(int x, int y, int d):locX(x), locY(y), damage(d){
 }
 	
 void PlantBullet::update(){
-    auto currentTime = std::chrono::high_resulution_clock::now();
+    auto currentTime = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
     if(duration.count() >= interval){
 	move();
