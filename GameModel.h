@@ -1,7 +1,10 @@
-#ifndef GAMEMODEL_HPP
-#define GAMEMODEL_HPP
+#ifndef GAMEMODEL_H
+#define GAMEMODEL_H
 
-public GameModel{
+#include "ZombieController.h"
+#include "Board.hpp"
+
+class GameModel{
 
 
 	private:
@@ -13,6 +16,6 @@ public GameModel{
 	void Update();
 	void Render();
 
-}
+};
 
 #endif

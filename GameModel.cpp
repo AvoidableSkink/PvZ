@@ -1,4 +1,4 @@
-#include "GampeMpdel.hpp"
+#include "GameModel.h"
 
 
 GameModel::GameModel(){}

@@ -1,6 +1,8 @@
+#include "GameModel.h"
 #include<mpi.h>
 
 
+#define MCW MPI_COMM_WORLD
 
 int main(int argc, char**argv){
 	int rank, size;
@@ -12,7 +14,7 @@ int main(int argc, char**argv){
 // Game
 	//One way we could do this -----
 	if(rank ==0){
-		GameModel Game_Model; // or we could do this per processor or something...
+		GameModel Game_Model(); // or we could do this per processor or something...
 	}
 	// ----------------------
 

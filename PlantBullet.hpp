@@ -3,7 +3,7 @@
 
 
 
-PlantBullet{
+class PlantBullet{
 
 	public:
 	PlantBullet(int x, int y, int d);
