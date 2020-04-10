@@ -15,19 +15,17 @@ void Zombie::updateLocation(int x, int y){
 
 void Zombie::lowerHitPoints(int amount){hitPoints -= amount;}
 
-int Zombie::update( ){
+//update should be void? had int in case stuff breaks
+//also all this does is update location... so its ok to skip if they cant move
+void Zombie::update( ){
 
-	auto currentTime = std::chrono::high_resolution_clock::now();
-
+    auto currentTime = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
+    
     if(duration.count() >= interval){
 	move();
 	lastShot = currentTime;
-	}
-
-
-
-	return damage;
+    }
 }
 
 void Zombie::move(){

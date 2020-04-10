@@ -14,7 +14,7 @@ PeaShooter::PeaShooter(int x, int y) { //just kinda picked, sure well change em 
 }
 
 PlantBullet PeaShooter::shoot() {
-    PlantBullet newBullet(0,0,damage); 
+    PlantBullet newBullet(locX,locY,damage); 
     lastShot = std::chrono::high_resolution_clock::now();
     return newBullet;
 }

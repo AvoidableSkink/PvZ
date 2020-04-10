@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include "Zombie.h"
@@ -17,7 +19,7 @@ private:
 public:
     void moveObjects(); 
     void updateHealth();
+    void eraseDead();
     void addZombie(Zombie zom){zombies.push_back(zom);}
-
-    
+    void addPlant(Plant plant){plants.push_back(plant);}
 };

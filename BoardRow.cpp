@@ -2,6 +2,9 @@
 
 #include "BoardRow.hpp"
 
+//returns true if plant found
+bool checkForPlant(int space,std::vector<Plant> p);
+
 //moves stuff that needs to move
 //plants shoot instead of moving :)
 void BoardRow::moveObjects() {
@@ -13,11 +16,13 @@ void BoardRow::moveObjects() {
     }
 
     for(int i=0;i<bullets.size();++i) {
-		bullets[i].update();
+	bullets[i].update();
     }
 
     for(int i=0;i<zombies.size();++i) {
-		zombies[i].update();
+	//my idea for how to not let zombies move if they are with a plant
+	if(!checkForPlant(zombies[i].getX(),plants)) //no plant on my square
+	    zombies[i].update();
     }
 }
 
@@ -46,7 +51,10 @@ void BoardRow::updateHealth() {
 	    }
 	}
     }
+}
 
+void BoardRow::eraseDead() {
+    
     //time to check and see what died
     for(int i=plants.size()-1;i>=0;--i){
 	if(!plants[i].alive())
@@ -59,9 +67,16 @@ void BoardRow::updateHealth() {
     }
 
     //sameish thing for zombies
-	for(int i=zombies.size()-1;i>=0;--i){
+  for(int i=zombies.size()-1;i>=0;--i){
 	if(zombies[i].getHitPoints() <= 0)
 	    zombies.erase(zombies.begin()+i);
     }
-    
+}
+
+bool checkForPlant(int space, std::vector<Plant> p) {
+    for(int i=0;i<p.size();!p[i].alive()) {
+	if(p[i].getX() == space)
+	    return true;
+    }
+    return false;
 }

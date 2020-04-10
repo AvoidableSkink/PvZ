@@ -9,8 +9,8 @@ class PlantBullet{
 public:
     PlantBullet(int x, int y, int d);
     virtual void update();
-    std::chrono::time_point<std::chrono::high_resolution_clock> lastShot;  //callin it lastMove prolly makes more sense
-	  virtual void move();
+    std::chrono::time_point<std::chrono::high_resolution_clock> lastMove;
+    virtual void move();
     int giveDamage();
     bool isAlive();
     int getX();
@@ -19,7 +19,7 @@ public:
 private:
     int locX;
     int locY;
-	  int interval;
+    int interval;
     int damage;
     bool alive;
 };
