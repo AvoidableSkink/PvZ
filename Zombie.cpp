@@ -18,8 +18,8 @@ void Zombie::lowerHitPoints(int amount){hitPoints -= amount;}
 
 int Zombie::update( ){
 
-	auto currentTime = std::chrono::high_resulution_clock::now();
-    auto duration = std::chrono::duration_cast<chrono::seconds>(currentTime-lastShot);
+	auto currentTime = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
     if(duration.count() >= interval){
 	move();
 	}
@@ -34,7 +34,7 @@ void Zombie::move(){
 }
 
 void Zombie::takeDamage(int damage){ //to take damage from the plant
-	hitpoints -= damage;
+	hitPoints -= damage;
 }
 
 int Zombie::getDamage(){return damage;} // to give the plant damage

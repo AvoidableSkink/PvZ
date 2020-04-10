@@ -4,7 +4,7 @@
 #include <stdlib.h> 
 
 
-ZombieController::ZombieController(int rows, int cols): rows(rows) :cols(cols){
+ZombieController::ZombieController(int rows, int cols): rows(rows), cols(cols){
 	//randomly pick number of zombies
 	//for section of gameboard controlled by this controller
 	currentWaveSize = rand()%13;
@@ -19,10 +19,11 @@ void ZombieController::CreateZombie(int damage, int hitpoints, int row, int col)
 	zombiesRemaining++;
 }
 
+//TODO: this function... sorry i dunno what intwidth is or id do it
 void ZombieController::ZombieManager(){
 	srand(time(0));
-	if(ZombieBox.size < 4){
-		CreateZombie(intwidth)
+	if(ZombieBox.size() < 4){
+//		CreateZombie(intwidth)
 	}
 
 

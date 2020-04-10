@@ -24,3 +24,5 @@ bool Plant::readyToShoot() {
 	return false;
 }
 
+int Plant::getX() {return locX;}
+int Plant::getY() {return locY;}

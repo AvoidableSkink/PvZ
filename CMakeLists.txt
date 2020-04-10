@@ -6,6 +6,7 @@ GameModel.h
 Zombie.h
 ZombieController.h
 Board.hpp
+BoardRow.hpp
 PlantBullet.hpp
 Plant.hpp
 PeaShooter.hpp)
@@ -17,6 +18,7 @@ ZombieController.cpp
 PlantBullet.cpp
 Plant.cpp
 Board.cpp
+BoardRow.cpp
 PeaShooter.cpp
 main.cpp)
 

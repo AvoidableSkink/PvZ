@@ -58,7 +58,7 @@ void BoardRow::updateHealth() {
     }
 
     for(int i=bullets.size()-1;i>=0;--i){
-	if(!bullets[i].isAlive();)
+	if(!bullets[i].isAlive())
 	    bullets.erase(bullets.begin()+i);
     }
 

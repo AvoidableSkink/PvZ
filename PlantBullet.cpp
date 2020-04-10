@@ -12,7 +12,7 @@ int PlantBullet::giveDamage() {
     return damage;
 }
 
-bool isAlive() {return alive;}
+bool PlantBullet::isAlive() {return alive;}
 int PlantBullet::getX() {return locX;}
 int PlantBullet::getY() {return locY;}
 

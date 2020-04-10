@@ -8,7 +8,7 @@ class GameModel{
 
 
 	private:
-	ZombieController Zombie_Controller;
+	ZombieController Zombie_Controller();
 	Board board;
 
 	public:
