@@ -3,11 +3,16 @@
 
 GameModel::GameModel(){}
 void GameModel::Update(){
-		Zombie_Controller.UpdateZombies();
+		
 
 
 	}
 	
-void GameModel::Render(){}
+void GameModel::Render(){
+
+
+
+	
+}
 
 
