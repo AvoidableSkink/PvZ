@@ -4,6 +4,10 @@
 #include "Plant.hpp"
 
 
+#include "Plant.hpp"
+#include "Zombie.h"
+#include "PlantBullet.hpp"
+
 class BoardRow {
 private:
     std::vector<Plant> plants;

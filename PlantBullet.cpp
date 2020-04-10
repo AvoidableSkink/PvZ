@@ -2,10 +2,9 @@
 #include <chrono>
 using namespace std::chrono;
 
-
-
 PlantBullet::PlantBullet(int x, int y, int d):locX(x), locY(y), damage(d){
-    lastShot = std::chrono::high_resolution_clock::now();
+    alive=true;
+    lastShot = std::chrono::high_resolution_clock::now();;
 }
 	
 void PlantBullet::update(){
@@ -21,6 +20,13 @@ void PlantBullet::update(){
 
 void PlantBullet::move(){}
 
+int PlantBullet::giveDamage() {
+    alive = false;
+    return damage;
+}
 
+bool PlantBullet::isAlive() {return alive;}
+int PlantBullet::getX() {return locX;}
+int PlantBullet::getY() {return locY;}
 
 

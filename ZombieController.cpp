@@ -3,12 +3,10 @@
 #include <stdio.h> 
 #include <stdlib.h> 
 
-
 ZombieController::ZombieController(int row, int col): rows(row), cols(col){
 	currentWaveSize = rand()%13;
 	zombiesRemaining = rand()%15;
 }
-
 
 void ZombieController::CreateZombie(int damage, int hitpoints, int row, int col){
 	Zombie zom(damage, hitpoints);
@@ -24,12 +22,7 @@ void ZombieController::ZombieManager(){
 		currentWaveSize++;
 		zombiesRemaining--;
 	}
-
-
 }
-
-
-
 
 void ZombieController::RemoveZombie(int loc){
 	ZombieBox.erase(ZombieBox.begin() + loc);

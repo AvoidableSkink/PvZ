@@ -6,20 +6,22 @@
 #include<iostream>
 
 class PlantBullet{
+public:
+    PlantBullet(int x, int y, int d);
+    virtual void update();
+    std::chrono::time_point<std::chrono::high_resolution_clock> lastShot;  //callin it lastMove prolly makes more sense
+	  virtual void move();
+    int giveDamage();
+    bool isAlive();
+    int getX();
+    int getY();
 
-	public:
-	PlantBullet(int x, int y, int d);
-	virtual void update();
-	virtual void move();
-	std::chrono::time_point<std::chrono::high_resolution_clock> lastShot;   
-
-	private:
-
-	int locX;
-	int locY;
-	int damage;
-	int interval;
-
+private:
+    int locX;
+    int locY;
+	  int interval;
+    int damage;
+    bool alive;
 };
 
 
