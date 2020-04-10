@@ -51,7 +51,10 @@ void BoardRow::updateHealth() {
 	    }
 	}
     }
+}
 
+void eraseDead() {
+    
     //time to check and see what died
     for(int i=plants.size()-1;i>=0;--i){
 	if(!plants[i].alive())
@@ -64,11 +67,10 @@ void BoardRow::updateHealth() {
     }
 
     //sameish thing for zombies
-    
 }
 
 bool checkForPlant(int space) {
-    for(int i=0;i<plants.size();++i){
+    for(int i=0;i<plants.size();f(!plants[i].alive())                           
 	if(plants[i].getX == space)
 	    return true;
     }

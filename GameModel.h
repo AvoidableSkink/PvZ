@@ -4,24 +4,24 @@
 #define GAMEMODEL_H
 
 #include "ZombieController.h"
-#include "Board.hpp"
+//#include "Board.hpp"
+#include "BoardRow"
 
 class GameModel{
 
+private:
+    //Board board;
+    ZombieController zc;
+    BoardRow myRow;	
 
-	private:
-	Board board;
-	ZombieController zc;
+public:
+    GameModel(): zc(5,5){}
+    void Update();
+    void Render();
+    void set(){	
+     // second two should take rows and cols
 
-
-	public:
-	GameModel(): zc(5,5){}
-	void Update();
-	void Render();
-	void set(){	
-	 // second two should take rows and cols
-
-	}
+    }
 	
 
 };
