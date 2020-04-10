@@ -4,21 +4,24 @@ using namespace std::chrono;
 
 PlantBullet::PlantBullet(int x, int y, int d):locX(x), locY(y), damage(d){
     alive=true;
-    lastShot = std::chrono::high_resolution_clock::now();;
+    lastMove = std::chrono::high_resolution_clock::now();;
 }
 	
 void PlantBullet::update(){
     auto currentTime = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastMove);
     if(duration.count() >= interval){
 	move();
-    lastShot = currentTime;
-	}
-
-
+	lastMove = currentTime;
+    }
 }
 
-void PlantBullet::move(){}
+void PlantBullet::move(){
+    ++locX;
+    //falls off screen
+    if(locX>9)
+	alive=false;
+}
 
 int PlantBullet::giveDamage() {
     alive = false;
