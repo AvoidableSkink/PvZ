@@ -9,6 +9,8 @@ void GameModel::Update(){
 
 }
 	
+//so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
+//I think trying rlutil.h will be helpful for this.
 void GameModel::Render(){
 
 
@@ -33,7 +35,6 @@ void GameModel::fill() {
     //test stuff
     std::cout << " we got " << numPlants << " plants" << std::endl;
     for(int i=0;i<10;++i) {
-	std::cout << "plant at " << i << "?" << std::endl;
 	if(myRow.checkForPlant(i)){
 	    std::cout << "plant at " << i << std::endl;
 	}

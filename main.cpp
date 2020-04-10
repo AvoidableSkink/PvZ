@@ -18,8 +18,8 @@ int main(int argc, char**argv){
     while(alive) {
 	gameModel.Update();
 
-	//some sort of way to get each processor to render in the correct order...
-	//gameModel.render();
+	MPI_Barrier(MCW);
+	gameModel.render();
     }	
 	
 	/*GameModel Game_Model; // or we could do this per processor or something...
