@@ -1,6 +1,7 @@
 #ifndef ZOMBIECONTROLLER_H
 #define ZOMBIECONTROLLER_H
 
+#include"Zombie.h"
 #include<vector>
 
 
@@ -20,3 +21,5 @@ class ZombieController{
 	
 
 };
+
+#endif
