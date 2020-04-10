@@ -1,14 +1,19 @@
 #include <iostream>
 #include <vector>
+#include "Zombie.h"
+#include "Plant.hpp"
+
 
 class BoardRow {
 private:
-    vector<Plant> plants;
-    vector<Zombie> zombies;
-    vector<PlantBullet> bullets;
+    std::vector<Plant> plants;
+    std::vector<Zombie> zombies;
+    std::vector<PlantBullet> bullets;
     
 public:
     void moveObjects(); 
     void updateHealth();
+    void addZombie(Zombie zom){zombies.push_back(zom);}
+
     
 };

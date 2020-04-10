@@ -10,8 +10,15 @@ int main(int argc, char**argv){
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MCW, &rank);
 	MPI_Comm_size(MCW, &size);
-	
-		GameModel Game_Model(); // or we could do this per processor or something...
+	int alive = true;
+	GameModel Game_Model; // or we could do this per processor or something...
+
+	while(alive){
+		Game_Model.Update();
+		Game_Model.Render();
+			MPI_Barrier(MCW);
+	}
+//send death message or cleared message
 
 
 
