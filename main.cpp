@@ -11,6 +11,16 @@ int main(int argc, char**argv){
 	MPI_Comm_rank(MCW, &rank);
 	MPI_Comm_size(MCW, &size);
 	int alive = true;
+
+    GameModel gameModel;
+
+    std::cout << "test" << std::endl;
+    while(alive) {
+	gameModel.Update();
+
+	MPI_Barrier(MCW);
+	gameModel.render();
+    }	
 	
 	/*GameModel Game_Model; // or we could do this per processor or something...
 	std::cout<<"test\n";

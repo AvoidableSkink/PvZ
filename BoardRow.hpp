@@ -22,4 +22,5 @@ public:
     void eraseDead();
     void addZombie(Zombie zom){zombies.push_back(zom);}
     void addPlant(Plant plant){plants.push_back(plant);}
+    bool checkForPlant(int space);
 };
