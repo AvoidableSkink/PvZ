@@ -15,7 +15,10 @@ protected:
 public: 
     void takeDamage(int d);
     int getHealth();
+    int getX();
+    int getY();//trying to decide if y is still necessary since things just are in a row...
     bool alive();
     bool readyToShoot();
+    
     virtual PlantBullet shoot(){}; //for the sunflower this is generating sun
 };

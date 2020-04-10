@@ -6,15 +6,20 @@
 
 class PlantBullet{
 
-	public:
-	PlantBullet(int x, int y, int d);
-	virtual void update();
-	private:
+public:
+    PlantBullet(int x, int y, int d);
+    virtual void update();
+    int giveDamage();
+    bool isAlive();
+    int getX();
+    int getY();
 
-	int locX;
-	int locY;
-	int damage;
-
+private:
+    int locX;
+    int locY;
+    int damage;
+    bool alive;
+//callin it lastMove
 };
 
 
