@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PLANTBULLET_HPP
 #define PLANYBULLET_HPP
 
