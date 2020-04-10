@@ -1,5 +1,5 @@
 #include "GameModel.h"
-#include<mpi.h>
+#include "mpi.h"
 
 
 #define MCW MPI_COMM_WORLD
