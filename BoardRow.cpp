@@ -2,6 +2,9 @@
 
 #include "BoardRow.hpp"
 
+//returns true if plant found
+bool checkForPlant(int space);
+
 //moves stuff that needs to move
 //plants shoot instead of moving :)
 void BoardRow::moveObjects() {
@@ -17,7 +20,9 @@ void BoardRow::moveObjects() {
     }
 
     for(int i=0;i<zombies.size();++i) {
-	zombies[i].update();
+	//my idea for how to not let zombies move if they are with a plant
+	if(!checkForPlant(zombies[i].getX())) //no plant on my square
+	    zombies[i].update();
     }
 }
 
@@ -60,4 +65,12 @@ void BoardRow::updateHealth() {
 
     //sameish thing for zombies
     
+}
+
+bool checkForPlant(int space) {
+    for(int i=0;i<plants.size();++i){
+	if(plants[i].getX == space)
+	    return true;
+    }
+    return false;
 }
