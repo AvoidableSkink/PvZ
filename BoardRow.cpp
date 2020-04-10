@@ -67,6 +67,10 @@ void BoardRow::eraseDead() {
     }
 
     //sameish thing for zombies
+  for(int i=zombies.size()-1;i>=0;--i){
+	if(zombies[i].getHitPoints() <= 0)
+	    zombies.erase(zombies.begin()+i);
+    }
 }
 
 bool checkForPlant(int space, std::vector<Plant> p) {
