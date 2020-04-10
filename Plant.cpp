@@ -1,7 +1,7 @@
 #include "Plant.hpp"
 
 void Plant::takeDamage(int d) {
-    currentLife -= d;
+    currentHealth -= d;
 }
 
 int Plant::getHealth() {
@@ -16,8 +16,8 @@ bool Plant::alive() {
 }
 
 bool Plant::readyToShoot() {
-    auto currentTime = std::chrono::high_resulution_clock::now();
-    auto duration = std::hrono::duration_cast<chrono::seconds>(currentTime-lastShot)
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
     if(duration.count() >= interval)
 	return true;
     else

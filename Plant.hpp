@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include "PlantBullet.hpp"
 
 class Plant {
 protected:
@@ -16,5 +17,5 @@ public:
     int getHealth();
     bool alive();
     bool readyToShoot();
-    virtual void shoot(); //for the sunflower this is generating sun
-}
+    virtual PlantBullet shoot(){}; //for the sunflower this is generating sun
+};

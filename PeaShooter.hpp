@@ -1,10 +1,12 @@
-//pea shooter 
+#pragma once
 
 #include <iostream>
 #include <string>
+#include "Plant.hpp"
+#include "PlantBullet.hpp"
 
 class PeaShooter : Plant {
 public:
-    void PeaShooter(int x, int y);
-    void shoot();
-}
+    PeaShooter(int x, int y);
+    PlantBullet shoot();
+};

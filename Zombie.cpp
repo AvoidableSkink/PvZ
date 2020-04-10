@@ -1,9 +1,11 @@
 #include "Zombie.h"
+
 #include <chrono>
 #include <random>
 
+
 Zombie::Zombie(int startDamage, int hitPoints):damage(startDamage), hitPoints(hitPoints){
-	interval = rand()%5
+	interval = rand()%5;
 }
 
 
