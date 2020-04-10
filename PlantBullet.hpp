@@ -2,13 +2,14 @@
 #ifndef PLANTBULLET_HPP
 #define PLANYBULLET_HPP
 
-
+#include <chrono>
 
 class PlantBullet{
-
 public:
     PlantBullet(int x, int y, int d);
     virtual void update();
+    std::chrono::time_point<std::chrono::high_resolution_clock> lastShot;  //callin it lastMove prolly makes more sense
+	  virtual void move();
     int giveDamage();
     bool isAlive();
     int getX();
@@ -19,7 +20,6 @@ private:
     int locY;
     int damage;
     bool alive;
-//callin it lastMove
 };
 
 

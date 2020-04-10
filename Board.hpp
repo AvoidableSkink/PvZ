@@ -10,7 +10,6 @@ class Board {
 private:
     std::vector<PlantBullet> liveBullets;
     BoardRow myRows[5];
-    std::vector<Zombie> zombies;
 
         
     void updateBullets(); //move some bullets 
@@ -18,5 +17,7 @@ private:
 
 public:
     void updateBoard();
+    void addZombie(int row, Zombie zom){myRows[row].addZombie(zom);}
+
 
 };

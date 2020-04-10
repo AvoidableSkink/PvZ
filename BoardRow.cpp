@@ -13,15 +13,11 @@ void BoardRow::moveObjects() {
     }
 
     for(int i=0;i<bullets.size();++i) {
-	//if(bullets[i].readyToMove()) {
-	    //bullets[i].move();
-	//}
+		bullets[i].update();
     }
 
     for(int i=0;i<zombies.size();++i) {
-	//if(zombies[i].readyToMove()){
-	//    zombies[i].move();
-	//}
+		zombies[i].update();
     }
 }
 

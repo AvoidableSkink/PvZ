@@ -1,6 +1,5 @@
 #include "Zombie.h"
 
-#include <chrono>
 #include <random>
 
 
@@ -19,9 +18,11 @@ void Zombie::lowerHitPoints(int amount){hitPoints -= amount;}
 int Zombie::update( ){
 
 	auto currentTime = std::chrono::high_resolution_clock::now();
+
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
     if(duration.count() >= interval){
 	move();
+	lastShot = currentTime;
 	}
 
 

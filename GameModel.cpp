@@ -1,9 +1,8 @@
 #include "GameModel.h"
 
 
-GameModel::GameModel(){}
 void GameModel::Update(){
-		
+	this->board.updateBoard();
 
 
 	}

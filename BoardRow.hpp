@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include "Zombie.h"
+#include "Plant.hpp"
+
 
 #include "Plant.hpp"
 #include "Zombie.h"
@@ -14,5 +17,7 @@ private:
 public:
     void moveObjects(); 
     void updateHealth();
+    void addZombie(Zombie zom){zombies.push_back(zom);}
+
     
 };

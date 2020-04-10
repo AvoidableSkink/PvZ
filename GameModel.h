@@ -1,3 +1,5 @@
+
+#pragma once
 #ifndef GAMEMODEL_H
 #define GAMEMODEL_H
 
@@ -8,13 +10,19 @@ class GameModel{
 
 
 	private:
-	ZombieController Zombie_Controller();
 	Board board;
+	ZombieController zc;
+
 
 	public:
-	GameModel();
+	GameModel(): zc(5,5){}
 	void Update();
 	void Render();
+	void set(){	
+	 // second two should take rows and cols
+
+	}
+	
 
 };
 

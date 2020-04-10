@@ -3,6 +3,7 @@
 
 #include"Zombie.h"
 #include<vector>
+#include "Board.hpp"
 
 
 // per wave
@@ -10,6 +11,7 @@ class ZombieController{
 
 	private:
 	std::vector <Zombie> ZombieBox;
+ 	Board board;
 	int zombiesRemaining;
 	int currentWaveSize;
 	int kills = 0;
