@@ -4,25 +4,25 @@
 #include <stdlib.h> 
 
 
-ZombieController::ZombieController(int rows, int cols): rows(rows) :cols(cols){
-	//randomly pick number of zombies
-	//for section of gameboard controlled by this controller
+ZombieController::ZombieController(int row, int col): rows(row), cols(col){
 	currentWaveSize = rand()%13;
-	zombiesRemaining = 15;
+	zombiesRemaining = rand()%15;
 }
 
 
 void ZombieController::CreateZombie(int damage, int hitpoints, int row, int col){
 	Zombie zom(damage, hitpoints);
 	zom.updateLocation(row, col);
-	ZombieBox.push_back(zom);
-	zombiesRemaining++;
+	board.addZombie(row, zom);
+	zombiesRemaining--;
 }
 
 void ZombieController::ZombieManager(){
 	srand(time(0));
-	if(ZombieBox.size < 4){
-		CreateZombie(intwidth)
+	if(currentWaveSize < 4){
+		CreateZombie(rand()%5, rand()%20, rand()%rows, cols-1);
+		currentWaveSize++;
+		zombiesRemaining--;
 	}
 
 

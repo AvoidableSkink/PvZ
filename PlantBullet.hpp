@@ -9,6 +9,7 @@ class PlantBullet{
 	public:
 	PlantBullet(int x, int y, int d);
 	virtual void update();
+	virtual void move();
 	private:
 
 	int locX;

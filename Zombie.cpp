@@ -19,7 +19,7 @@ void Zombie::lowerHitPoints(int amount){hitPoints -= amount;}
 int Zombie::update( ){
 
 	auto currentTime = std::chrono::high_resulution_clock::now();
-    auto duration = std::chrono::duration_cast<chrono::seconds>(currentTime-lastShot);
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(currentTime-lastShot);
     if(duration.count() >= interval){
 	move();
 	}
