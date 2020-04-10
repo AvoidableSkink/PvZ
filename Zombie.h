@@ -20,7 +20,7 @@ class Zombie{
 
 	public:
 	Zombie(int startDamage, int hitPoints);
-	virtual int update();
+	virtual void update();
 	virtual void updateLocation(int x, int y);
 	virtual void lowerHitPoints(int amount);	
 	virtual int getDamage();

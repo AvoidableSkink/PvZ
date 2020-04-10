@@ -5,7 +5,7 @@
 
 #include "ZombieController.h"
 //#include "Board.hpp"
-#include "BoardRow"
+#include "BoardRow.hpp"
 
 class GameModel{
 
