@@ -2,12 +2,23 @@ cmake_minimum_required(VERSION 3.8)
 project(MPI)
 
 set(HEADER_FILES
+GameModel.h
+Zombie.h
+ZombieController.h
 Board.hpp
+PlantBullet.hpp
+Plant.hpp
 PeaShooter.hpp)
 
 set(SOURCE_FILES
+GameModel.cpp
+Zombie.cpp
+ZombieController.cpp
+PlantBullet.cpp
+Plant.cpp
 Board.cpp
-PeaShooter.cpp)
+PeaShooter.cpp
+main.cpp)
 
 add_executable(PvZ main.cpp ${HEADER_FILES} ${SOURCE_FILES})
 

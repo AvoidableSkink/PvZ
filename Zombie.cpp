@@ -1,4 +1,4 @@
-#include "Zombie.hpp"
+#include "Zombie.h"
 
 Zombie::Zombie(int startDamage, int hitPoints):damage(startDamage), hitPoints(hitPoints){}
 
