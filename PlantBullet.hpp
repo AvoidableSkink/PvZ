@@ -3,6 +3,7 @@
 #define PLANYBULLET_HPP
 
 #include <chrono>
+#include<iostream>
 
 class PlantBullet{
 
@@ -17,6 +18,7 @@ class PlantBullet{
 	int locX;
 	int locY;
 	int damage;
+	int interval;
 
 };
 
