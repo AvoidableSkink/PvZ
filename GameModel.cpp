@@ -3,7 +3,7 @@
 #include "rlutil.h"
 
 void GameModel::Update(){
-//    this->board.updateBoard();
+    zc.ZombieManager(); // creates zombies if needed
     myRow.moveObjects();
     myRow.updateHealth();
     myRow.eraseDead();
