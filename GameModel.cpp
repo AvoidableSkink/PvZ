@@ -1,5 +1,6 @@
 #include "GameModel.h"
 #include "PeaShooter.hpp"
+#include "rlutil.h"
 
 void GameModel::Update(){
 //    this->board.updateBoard();
@@ -16,7 +17,7 @@ void GameModel::Update(){
 //I think trying rlutil.h will be helpful for this.
 void GameModel::Render(){
     
-    size_t y = 0; y < 1; y++)
+    for(size_t y = 0; y < 1; y++)
     {
         for (size_t x = 0; x < 10; x++) // i just picked the row length for ten since I guess it works
         {
