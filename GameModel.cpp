@@ -26,7 +26,8 @@ void GameModel::Render(){  // !!! Feel free to work on this code too... I think 
                 // move cursor and render char
                 rlutil::locate(x, y);
                 rlutil::setChar('*');  //<-- 'Z' for zombie, 'P' for plant?
-                //rutil::Set
+                //rutil::setChar('Z');
+                //rutil::setChar('P');
             }
             else
             {
