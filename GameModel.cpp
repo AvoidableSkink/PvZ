@@ -15,10 +15,10 @@ void GameModel::Update(){
 //so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
 //I think trying rlutil.h will be helpful for this.
 void GameModel::Render(){
-    /*
-    size_t y = 0; y < simulation.getSizeY(); y++)
+    
+    size_t y = 0; y < 1; y++)
     {
-        for (size_t x = 0; x < simulation.getSizeX(); x++)
+        for (size_t x = 0; x < 10; x++) // i just picked the row length for ten since I guess it works
         {
             if (simulation.getCell(x, y) == true)
             {
@@ -34,7 +34,7 @@ void GameModel::Render(){
     }
 
     rlutil::showcursor();
-*/
+
 	
 }
 
