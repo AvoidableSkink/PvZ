@@ -14,7 +14,7 @@ private:
     BoardRow myRow;	
 
 public:
-    GameModel(): zc(5,10) {fill();}
+    GameModel(): zc(1,10) {fill();}
     void fill(); //this is used to add a starting # of random plants until user input is a thing
     void Update();
     void Render();
