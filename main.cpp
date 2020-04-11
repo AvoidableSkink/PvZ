@@ -33,7 +33,7 @@ int main(int argc, char**argv)
     //1 means game is ongoing, 0 is won, -1 is lost
     while(game_status == 1) 
 	{
-		std::cout<<"in game\n";
+		std::cout<<rank << "in game\n";
       //every processor controls a 1 X 10 row
 
 	  //Communicate with other processes
@@ -93,7 +93,8 @@ std::cout << "made it lmao" << std::endl;
 		//checking game status
 		//1 means game is ongoing, 0 is won, -1 is lost
 		game_status = gameModel.getStatus();	
-
+		std::cout<<"Game Status: " << game_status<<"\n";
+		
 		/*
 		//If this processor reports the game is over
 		if(game_status != 1)
