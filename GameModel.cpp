@@ -7,11 +7,10 @@ void GameModel::Update(){
     myRow.moveObjects();
     myRow.updateHealth();
     myRow.eraseDead();
-    /*
+    
     if(myRow.checkZombieWin()){
         status = -1;
-    }*/
-    //std::cout<<"flip\n";
+    }
 }
 	
 //so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
