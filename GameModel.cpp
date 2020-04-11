@@ -21,7 +21,7 @@ void GameModel::Render(){  // !!! Feel free to work on this code too... I think 
     if(processRank == 0)
 	rlutil::cls();
 
-    rlutil::hidecursor();
+//    rlutil::hidecursor();
 
     myRow.renderBullets();
     myRow.renderZombies();
