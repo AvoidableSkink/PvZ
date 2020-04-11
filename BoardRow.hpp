@@ -24,4 +24,8 @@ public:
     void addPlant(Plant plant){plants.push_back(plant);}
     bool checkForPlant(int space);
     bool checkZombieWin();
+
+    void renderBullets();
+    void renderZombies();
+    void renderPlants();
 };
