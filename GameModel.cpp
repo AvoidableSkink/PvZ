@@ -15,17 +15,18 @@ void GameModel::Update(){
 	
 //so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
 //I think trying rlutil.h will be helpful for this.
-void GameModel::Render(){
+void GameModel::Render(){  // !!! Feel free to work on this code too... I think this is the major piece left !!!
     
     for(size_t y = 0; y < 1; y++)
     {
         for (size_t x = 0; x < 10; x++) // i just picked the row length for ten since I guess it works
         {
-            if (simulation.getCell(x, y) == true)
+            if (simulation.getCell(x, y) == true) // <---- I don't know where to pull this from in our project
             {
                 // move cursor and render char
                 rlutil::locate(x, y);
-                rlutil::setChar('*');
+                rlutil::setChar('*');  //<-- 'Z' for zombie, 'P' for plant?
+                //rutil::Set
             }
             else
             {
