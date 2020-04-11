@@ -6,15 +6,33 @@ void GameModel::Update(){
     myRow.moveObjects();
     myRow.updateHealth();
     myRow.eraseDead();
+    status = myRow.checkZombieWin();
 
 }
 	
 //so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
 //I think trying rlutil.h will be helpful for this.
 void GameModel::Render(){
+    /*
+    size_t y = 0; y < simulation.getSizeY(); y++)
+    {
+        for (size_t x = 0; x < simulation.getSizeX(); x++)
+        {
+            if (simulation.getCell(x, y) == true)
+            {
+                // move cursor and render char
+                rlutil::locate(x, y);
+                rlutil::setChar('*');
+            }
+            else
+            {
+                continue;
+            }
+        }
+    }
 
-
-
+    rlutil::showcursor();
+*/
 	
 }
 
@@ -39,4 +57,11 @@ void GameModel::fill() {
 	    std::cout << "plant at " << i << std::endl;
 	}
     }
+}
+
+bool GameModel::getStatus(){
+    if(zc.getZombiesRemaining() <= 0){
+        status = false;
+    }
+    return status;
 }

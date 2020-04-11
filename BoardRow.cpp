@@ -1,18 +1,19 @@
 #include <iostream>
 
 #include "BoardRow.hpp"
-
+const int COLS = 10;
 //moves stuff that needs to move
 //plants shoot instead of moving :)
 void BoardRow::moveObjects() {
     for(int i=0;i<plants.size();++i) {
 	if(plants[i].readyToShoot()){
-	    PlantBullet tmp = plants[i].shoot();
+	    PlantBullet tmp = plants[i].shoot(plants[i].getX(), COLS);
 	    bullets.push_back(tmp);
 	}	
     }
 
     for(int i=0;i<bullets.size();++i) {
+
 	bullets[i].update();
     }
 
@@ -77,4 +78,12 @@ bool BoardRow::checkForPlant(int space) {
 	    return true;
     }
     return false;
+}
+
+bool BoardRow::checkZombieWin(){
+	for(int i= 0; zombies.size()-1;--i){
+	if(zombies[i].getX() <= 0)
+	    return false;
+    }
+	return true;
 }

@@ -24,6 +24,7 @@ class ZombieController{
 	void CreateZombie(int damage, int hitpoints, int row, int col);
 	void ZombieManager();
 	void RemoveZombie(int loc);
+	int getZombiesRemaining();
 	
 
 };

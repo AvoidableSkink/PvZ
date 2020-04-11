@@ -24,5 +24,12 @@ bool Plant::readyToShoot() {
 	return false;
 }
 
+PlantBullet Plant::shoot(int cols, int row){
+    PlantBullet p(cols, row, rand()%5);
+    return p;
+}
+
+
+
 int Plant::getX() {return locX;}
 int Plant::getY() {return locY;}

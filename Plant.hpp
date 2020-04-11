@@ -22,5 +22,6 @@ public:
     bool alive();
     bool readyToShoot();
     
-    virtual PlantBullet shoot(){}; //for the sunflower this is generating sun
+   virtual PlantBullet shoot(int cols, int row); //for the sunflower this is generating sun | no sunflowers currently
+   // and this is throwing errors
 };
