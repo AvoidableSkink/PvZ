@@ -4,11 +4,8 @@
 #include <vector>
 #include "Zombie.h"
 #include "Plant.hpp"
-
-
-#include "Plant.hpp"
-#include "Zombie.h"
 #include "PlantBullet.hpp"
+#include "rlutil.h"
 
 class BoardRow {
 private:
