@@ -33,14 +33,17 @@ int main(int argc, char**argv)
     //1 means game is ongoing, 0 is won, -1 is lost
     while(game_status == 1) 
 	{
+		std::cout<<rank << "in game\n";
       //every processor controls a 1 X 10 row
 
 	  //Communicate with other processes
 
+		
 		if(not_heard_from_prior_processor)
 		{
+			std::cout<<"here\n";
 			MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
-			while(mode)
+			while(flag)
 			{
 				MPI_Recv(&ender_rank,1,MPI_INT,prev,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
 				if(ender_rank == -100)
@@ -67,12 +70,14 @@ int main(int argc, char**argv)
 
 			} 
 		}
+		
 
 		//end communicate with others
 
 		// GAME PLAY
 std::cout << "gon update" << std::endl;
 		gameModel.Update();
+
 std::cout << "updated" << std::endl;
 		MPI_Barrier(MCW);
 std::cout << "made it lmao" << std::endl;
@@ -88,7 +93,9 @@ std::cout << "made it lmao" << std::endl;
 		//checking game status
 		//1 means game is ongoing, 0 is won, -1 is lost
 		game_status = gameModel.getStatus();	
-
+		std::cout<<"Game Status: " << game_status<<"\n";
+		
+		/*
 		//If this processor reports the game is over
 		if(game_status != 1)
 		{
@@ -102,8 +109,9 @@ std::cout << "made it lmao" << std::endl;
 		{
 			break;
 		}
-
-		MPI_Barrier(MCW);
+		*/
+		//MPI_Barrier(MCW);
+		
     }
 
     if(game_status == 0 && prior_processor_won && !not_heard_from_prior_processor)

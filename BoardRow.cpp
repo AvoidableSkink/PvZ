@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "BoardRow.hpp"
+#include "rlutil.h"
+
 const int COLS = 10;
 //moves stuff that needs to move
 //plants shoot instead of moving :)
@@ -81,7 +83,7 @@ bool BoardRow::checkForPlant(int space) {
 }
 
 bool BoardRow::checkZombieWin(){
-	for(int i= 0; zombies.size()-1;--i){
+	for(int i= 0; i < zombies.size();--i){
 	if(zombies[i].getX() <= 0)
 	    return false;
     }
