@@ -37,8 +37,10 @@ int main(int argc, char**argv)
 
 	  //Communicate with other processes
 
+		/*
 		if(not_heard_from_prior_processor)
 		{
+			std::cout<<"here\n";
 			MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
 			while(mode)
 			{
@@ -67,12 +69,13 @@ int main(int argc, char**argv)
 
 			} 
 		}
+		*/
 
 		//end communicate with others
 
 		// GAME PLAY
 		gameModel.Update();
-
+		//std::cout<<"ugh\n";
 		MPI_Barrier(MCW);
 		gameModel.Render();
 
@@ -80,6 +83,7 @@ int main(int argc, char**argv)
 		//1 means game is ongoing, 0 is won, -1 is lost
 		game_status = gameModel.getStatus();	
 
+		/*
 		//If this processor reports the game is over
 		if(game_status != 1)
 		{
@@ -95,8 +99,9 @@ int main(int argc, char**argv)
 		}
 
 		MPI_Barrier(MCW);
+		*/
     }
-
+/*
     if(game_status == 0 && prior_processor_won && !not_heard_from_prior_processor)
 	{	
 		int wonSoFar = -100;
@@ -117,7 +122,7 @@ int main(int argc, char**argv)
 		}
     }
 
-
+*/
     MPI_Finalize();
     return 0;
 }
