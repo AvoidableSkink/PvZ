@@ -89,13 +89,22 @@ bool BoardRow::checkZombieWin(){
 }
 
 void BoardRow::renderBullets() {
-
+    for(int i=0;i<bullets.size();++i) {
+	rlutil::locate(bullets[i].getX(),bullets[i].getY());
+	rlutil::setChar('*');
+    }
 }
 
 void BoardRow::renderZombies() {
-
+    for(int i=0;i<zombies.size();++i) {
+	rlutil::locate(zombies[i].getX(),zombies[i].getY());
+	rlutil::setChar('Z');
+    }
 }
 
 void BoardRow::renderPlants() {
-
+    for(int i=0;i<plants.size();++i) {
+	rlutil::locate(plants[i].getX(),plants[i].getY());
+	rlutil::setChar('P');
+    }
 }
