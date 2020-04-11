@@ -4,7 +4,7 @@
 
 #define MCW MPI_COMM_WORLD
 
-//GAME_STATUS 1 is won, 0 is lost
+//GAME_STATUS -1 is lost, otherwise processor who ended game first
 
 int main(int argc, char**argv){
 	int rank, size;
@@ -12,66 +12,65 @@ int main(int argc, char**argv){
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MCW, &rank);
 	MPI_Comm_size(MCW, &size);
-	bool game_ongoing = true;
+	int game_status = 1;
 
     GameModel gameModel;
+	int mode = 1;
 
-    std::cout << "test" << std::endl;
-    while(game_ongoing) {
+    while(game_status == 1) {
 
-	// CHECK if the prior processors are dead od done
-	int flag;
 
-	MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
-	//work
-	while(flag){
-		MPI_Recv(&GAME_STATUS,1,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
-		game_ongoing = false;
-			//send status to the next processor
+		//Communicate with other processes
+		int flag;
 
-			//if not the last processor tell the next processor the game is over
-			if(rank < size-1){
-				MPI_Send(&GAME_STATUS,1,MPI_INT,rank+1,1,MCW);
-			else{
-				//if this is the last processor tell the user the game is over and the result
-				if(GAME_STATUS ==0){
+		MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
+		while(mode){
+			int ender_rank;
+			MPI_Recv(&ender_rank,1,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
+			game_status = false;
+				//Game status is the rank of the processor that ended the game
+				if(rank == ender_rank -1){
+					break;
+				}else{
+
+					MPI_Send(&ender_rank,1,MPI_INT,rank+1,1,MCW);
+					mode = false;
+					break;
+
+				}
+				//if not the last processor tell the next processor the game is over
+
+			} 
+
+		// GAME 
+		gameModel.Update();
+
+		MPI_Barrier(MCW);
+		gameModel.Render();
+
+		//1 means game is ongoing, 0 is won, -1 is lost
+		game_status = gameModel.getStatus();	
+
+		//Tell other processors the game is over
+			if(game_status != 1 && mode == 1){
+				if(game_status == -1){
 					std::cout<<"THE ZOMBIES ATE YOUR BRAINS\n";
 				}else{
 					std::cout<<"Ok, you win. No more eatin brains for us. We just want to make music video with you now. sincerely,\n the Zombies";
+						
 				}
-
-			}} 
-
-		}
-
-		MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
-	}
-
-
-
-
-
-	gameModel.Update();
+				MPI_Send(&rank,1,MPI_INT,rank+1,1,MCW);
+			}
 
 	MPI_Barrier(MCW);
-	gameModel.Render();
-	game_ongoing = gameModel.getStatus();
-    }	
-	
-	/*GameModel Game_Model; // or we could do this per processor or something...
-	std::cout<<"test\n";
-	while(alive){
-		Game_Model.Update();
-		Game_Model.Render();
-			MPI_Barrier(MCW);
 	}
 
-	*/
-//send death message or cleared message
 
 
 
 
+    
+	
 
 	MPI_Finalize();
 	return 0;

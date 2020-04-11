@@ -6,7 +6,9 @@ void GameModel::Update(){
     myRow.moveObjects();
     myRow.updateHealth();
     myRow.eraseDead();
-    status = myRow.checkZombieWin();
+    if(myRow.checkZombieWin()){
+        status = -1;
+    }
 
 }
 	
@@ -61,7 +63,7 @@ void GameModel::fill() {
 
 bool GameModel::getStatus(){
     if(zc.getZombiesRemaining() <= 0){
-        status = false;
+        status = 0;
     }
     return status;
 }
