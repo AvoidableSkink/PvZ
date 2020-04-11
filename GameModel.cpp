@@ -35,7 +35,7 @@ void GameModel::Render(){
 
     rlutil::showcursor();
 */
-	
+std::cout << "rendering" <<std::endl;	
 }
 
 //adds some pea shooters to the row
@@ -53,10 +53,10 @@ void GameModel::fill() {
     }
 
     //test stuff
-    std::cout << " we got " << numPlants << " plants" << std::endl;
+//    std::cout << " we got " << numPlants << " plants" << std::endl;
     for(int i=0;i<10;++i) {
 	if(myRow.checkForPlant(i)){
-	    std::cout << "plant at " << i << std::endl;
+//	    std::cout << "plant at " << i << std::endl;
 	}
     }
 }
