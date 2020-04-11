@@ -12,57 +12,96 @@ int main(int argc, char**argv){
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MCW, &rank);
 	MPI_Comm_size(MCW, &size);
-	int game_status = 1;
+	int game_status = 1; 	//1 means game is ongoing, 0 is won, -1 is lost
+	bool prior_processor_won = false;
+    bool not_heard_from_prior_processor = true;
+	GameModel gameModel;
+	int mode = 1; //used to get message from prior processor while game is ongoing
+	int flag; //flag in message
+	int ender_rank; // the processor that lost the game
 
-    GameModel gameModel;
-	int mode = 1;
+	//for sending and recieving mesages
+	int next;
+	int prev;
+	next = rank +1;
+	prev = rank -1;
+	if(next + 1 >= size){ next = 0;}
+	if(prev - 1 < 0){ prev = size-1;}
 
+
+	//1 means game is ongoing, 0 is won, -1 is lost
     while(game_status == 1) {
-
+    //every processor controls a 1 X 10 row
 
 		//Communicate with other processes
-		int flag;
 
+		if(not_heard_from_prior_processor){
 		MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
-		while(mode){
-			int ender_rank;
-			MPI_Recv(&ender_rank,1,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
-			game_status = false;
-				//Game status is the rank of the processor that ended the game
-				if(rank == ender_rank -1){
-					break;
-				}else{
+			while(mode){
 
-					MPI_Send(&ender_rank,1,MPI_INT,rank+1,1,MCW);
-					mode = false;
-					break;
+				MPI_Recv(&ender_rank,1,MPI_INT,prev,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
+					if(ender_rank == -100){
+						prior_processor_won = true;
+						not_heard_from_prior_processor = false;
+						break;
+					}
+					//if not the last processor tell the next processor the game is over
+					if(rank == ender_rank -1 || (ender_rank == 0 && rank == size-1) ){
+						break;
+					}else{
+						int next;
+						next = rank +1;
+						if(next +1 >= size){ next =0;}
+						MPI_Send(&ender_rank,1,MPI_INT,next,1,MCW);
+						mode = false;
+						break;
+					}
 
-				}
-				//if not the last processor tell the next processor the game is over
+				} 
+		}
 
-			} 
+		//end communicate with others
 
-		// GAME 
+		// GAME PLAY
 		gameModel.Update();
 
 		MPI_Barrier(MCW);
 		gameModel.Render();
 
+		//checking game status
 		//1 means game is ongoing, 0 is won, -1 is lost
 		game_status = gameModel.getStatus();	
 
-		//Tell other processors the game is over
-			if(game_status != 1 && mode == 1){
+		//If this processor reports the game is over
+			if(game_status != 1){
 				if(game_status == -1){
 					std::cout<<"THE ZOMBIES ATE YOUR BRAINS\n";
-				}else{
-					std::cout<<"Ok, you win. No more eatin brains for us. We just want to make music video with you now. sincerely,\n the Zombies";
-						
+					MPI_Send(&rank,1,MPI_INT,next,1,MCW);
 				}
-				MPI_Send(&rank,1,MPI_INT,rank+1,1,MCW);
+
+			}else{
+				break;
 			}
 
 	MPI_Barrier(MCW);
+	}
+
+	if(game_status == 0 && prior_processor_won && !not_heard_from_prior_processor){
+		int wonSoFar = -100;
+		MPI_Send(&wonSoFar,1,MPI_INT,next,1,MCW);
+
+	}
+
+	if(not_heard_from_prior_processor){
+		MPI_Iprobe(prev,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
+					MPI_Recv(&ender_rank,1,MPI_INT,prev,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
+					//if this won and the prior ones won
+					if(ender_rank == -100){
+						prior_processor_won = true;
+						not_heard_from_prior_processor = false;
+						MPI_Send(&ender_rank,1,MPI_INT,next,1,MCW);
+					}
+
 	}
 
 
