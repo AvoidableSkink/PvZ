@@ -1,3 +1,0 @@
-/home/gr/Documents/workspace/USU/P_Prog/PVZ/PvZ/CMakeFiles/rebuild_cache.dir
-/home/gr/Documents/workspace/USU/P_Prog/PVZ/PvZ/CMakeFiles/PvZ.dir
-/home/gr/Documents/workspace/USU/P_Prog/PVZ/PvZ/CMakeFiles/edit_cache.dir
