@@ -71,10 +71,19 @@ int main(int argc, char**argv)
 		//end communicate with others
 
 		// GAME PLAY
+std::cout << "gon update" << std::endl;
 		gameModel.Update();
-
+std::cout << "updated" << std::endl;
 		MPI_Barrier(MCW);
-		gameModel.Render();
+std::cout << "made it lmao" << std::endl;
+
+		//kinda hacky way to get the rank 0 to render first...
+		//this is important so that it can clear the screen each time
+		if(rank == 0)
+		    gameModel.Render();
+		MPI_Barrier(MCW);
+		if(rank!=0)
+		    gameModel.Render();
 
 		//checking game status
 		//1 means game is ongoing, 0 is won, -1 is lost
