@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "BoardRow.hpp"
+#include "rlutil.h"
+
 const int COLS = 10;
 //moves stuff that needs to move
 //plants shoot instead of moving :)

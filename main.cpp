@@ -108,11 +108,11 @@ std::cout << "made it lmao" << std::endl;
 		{
 			break;
 		}
-
-		MPI_Barrier(MCW);
 		*/
+		//MPI_Barrier(MCW);
+		
     }
-/*
+
     if(game_status == 0 && prior_processor_won && !not_heard_from_prior_processor)
 	{	
 		int wonSoFar = -100;
@@ -133,7 +133,7 @@ std::cout << "made it lmao" << std::endl;
 		}
     }
 
-*/
+
     MPI_Finalize();
     return 0;
 }
