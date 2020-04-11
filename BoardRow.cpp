@@ -87,3 +87,15 @@ bool BoardRow::checkZombieWin(){
     }
 	return true;
 }
+
+void BoardRow::renderBullets() {
+
+}
+
+void BoardRow::renderZombies() {
+
+}
+
+void BoardRow::renderPlants() {
+
+}

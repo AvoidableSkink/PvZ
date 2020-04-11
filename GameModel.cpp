@@ -39,6 +39,14 @@ void GameModel::Render(){  // !!! Feel free to work on this code too... I think 
     rlutil::showcursor();
 */
 std::cout << "rendering" <<std::endl;	
+
+    //bullets first, then zombies, then plants... because they may share a square, i think the ones most important to be seen are plants, then zombies, then bullets.
+    if(processRank == 0)
+	rlutil::cls;
+
+    myRow.renderBullets();
+    myRow.renderZombies();
+    myRow.renderPlants();
 }
 
 //adds some pea shooters to the row
