@@ -11,10 +11,13 @@ class GameModel{
 private:
     //Board board;
     ZombieController zc;
-    BoardRow myRow;	
+    BoardRow myRow;
+    
+    //only necessary bc this has to be parallel	
+    int processRank;
 
 public:
-    GameModel(): zc(1,10) {fill();}
+    GameModel(int rank): zc(1,10), processRank(rank) {fill();}
     void fill(); //this is used to add a starting # of random plants until user input is a thing
     void Update();
     void Render();

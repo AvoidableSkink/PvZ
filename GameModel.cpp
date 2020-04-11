@@ -40,7 +40,7 @@ void GameModel::Render(){
 
 //adds some pea shooters to the row
 void GameModel::fill() {
-    srand(time(0));
+    srand(time(0)+processRank);
     int numPlants = rand() % 6 + 1;
     
     int x;

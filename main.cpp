@@ -15,7 +15,7 @@ int main(int argc, char**argv){
     int game_status = 1; 	//1 means game is ongoing, 0 is won, -1 is lost
     bool prior_processor_won = false;
     bool not_heard_from_prior_processor = true;
-    GameModel gameModel;
+    GameModel gameModel(rank);
     int mode = 1; //used to get message from prior processor while game is ongoing
     int flag; //flag in message
     int ender_rank; // the processor that lost the game
