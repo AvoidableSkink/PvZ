@@ -26,6 +26,9 @@ void Zombie::update( ){
 	move();
 	lastShot = currentTime;
     }
+	// if this reached the other side of the board, player is dead
+	
+	}
 }
 
 void Zombie::move(){

@@ -28,3 +28,6 @@ void ZombieController::RemoveZombie(int loc){
 	ZombieBox.erase(ZombieBox.begin() + loc);
 	zombiesRemaining--;
 }
+
+
+int ZombieController::getZombiesRemaining(){return zombiesRemaining;}

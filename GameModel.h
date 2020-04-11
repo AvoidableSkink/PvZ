@@ -18,6 +18,8 @@ public:
     void fill(); //this is used to add a starting # of random plants until user input is a thing
     void Update();
     void Render();
+    bool status = true; // false if player is dead or zombies are gone
+    bool getStatus(); 
     void set(){	
      // second two should take rows and cols
 
