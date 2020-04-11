@@ -16,37 +16,18 @@ void GameModel::Update(){
 //so I think we can use the y/rank to show where to print out the stuff for the rendering so its in the correct order
 //I think trying rlutil.h will be helpful for this.
 void GameModel::Render(){  // !!! Feel free to work on this code too... I think this is the major piece left !!!
-/*
-    for(size_t y = 0; y < 1; y++)
-    {
-        for (size_t x = 0; x < 10; x++) // i just picked the row length for ten since I guess it works
-        {
-            if (simulation.getCell(x, y) == true) // <---- I don't know where to pull this from in our project
-            {
-                // move cursor and render char
-                rlutil::locate(x, y);
-                rlutil::setChar('*');  //<-- 'Z' for zombie, 'P' for plant?
-                //rutil::setChar('Z');
-                //rutil::setChar('P');
-            }
-            else
-            {
-                continue;
-            }
-        }
-    }
-
-    rlutil::showcursor();
-*/
-std::cout << "rendering" <<std::endl;	
 
     //bullets first, then zombies, then plants... because they may share a square, i think the ones most important to be seen are plants, then zombies, then bullets.
     if(processRank == 0)
-	rlutil::cls;
+	rlutil::cls();
+
+    rlutil::hidecursor();
 
     myRow.renderBullets();
     myRow.renderZombies();
     myRow.renderPlants();
+
+    rlutil::showcursor();
 }
 
 //adds some pea shooters to the row
