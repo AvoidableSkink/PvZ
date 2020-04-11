@@ -33,16 +33,17 @@ int main(int argc, char**argv)
     //1 means game is ongoing, 0 is won, -1 is lost
     while(game_status == 1) 
 	{
+		std::cout<<"in game\n";
       //every processor controls a 1 X 10 row
 
 	  //Communicate with other processes
 
-		/*
+		
 		if(not_heard_from_prior_processor)
 		{
 			std::cout<<"here\n";
 			MPI_Iprobe(MPI_ANY_SOURCE,MPI_ANY_TAG,MCW,&flag,MPI_STATUS_IGNORE);
-			while(mode)
+			while(flag)
 			{
 				MPI_Recv(&ender_rank,1,MPI_INT,prev,MPI_ANY_TAG,MCW,MPI_STATUS_IGNORE);
 				if(ender_rank == -100)
@@ -69,7 +70,7 @@ int main(int argc, char**argv)
 
 			} 
 		}
-		*/
+		
 
 		//end communicate with others
 
