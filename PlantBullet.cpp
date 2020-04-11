@@ -5,6 +5,7 @@ using namespace std::chrono;
 PlantBullet::PlantBullet(int x, int y, int d):locX(x), locY(y), damage(d){
     alive=true;
     lastMove = std::chrono::high_resolution_clock::now();;
+    interval = 1;
 }
 	
 void PlantBullet::update(){
